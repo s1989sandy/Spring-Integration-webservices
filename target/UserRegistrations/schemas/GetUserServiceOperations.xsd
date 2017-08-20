@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns="http://com/emc/userRegistrations/getUserServices" xmlns:user="http://userRegistrations.emc.com"
+	targetNamespace="http://com/emc/userRegistrations/getUserServices"
+	elementFormDefault="qualified">
+	<xsd:import namespace="http://userRegistrations.emc.com"
+		schemaLocation="UserDetails.xsd" />
+	<xsd:element name="GetUserRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="userId" type="xsd:string" />
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="GetUserResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="userDetails" type="user:User" />
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

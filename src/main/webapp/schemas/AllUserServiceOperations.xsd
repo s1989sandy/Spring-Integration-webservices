@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns="http://com/emc/userRegistrations/AllUserServices" xmlns:user="http://userRegistrations.emc.com"
+	targetNamespace="http://com/emc/userRegistrations/AllUserServices"
+	elementFormDefault="qualified">
+	<xsd:import namespace="http://userRegistrations.emc.com"
+		schemaLocation="UserDetails.xsd" />
+	<xsd:element name="GetAllUserRequest"/>
+	<xsd:element name="GetAllUserResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="listuserDetails" type="user:User" maxOccurs="unbounded"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>
