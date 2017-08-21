@@ -1,0 +1,4 @@
+Test:
+Run the server and check the below URL's for wsdl files
+http://localhost:2017/UserRegistrations/endpoints/GetUserService.wsdl
+http://localhost:2017/UserRegistrations/endpoints/SaveUserService.wsdl
