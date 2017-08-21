@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch0="http://com/emc/userRegistrations/saveUserServices" xmlns:sch1="http://userRegistrations.emc.com" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://com/emc/userRegistrations/saveUserServices" targetNamespace="http://com/emc/userRegistrations/saveUserServices">
+  <wsdl:types>
+    <xsd:schema xmlns="http://com/emc/userRegistrations/saveUserServices" xmlns:user="http://userRegistrations.emc.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://com/emc/userRegistrations/saveUserServices"><xsd:import namespace="http://userRegistrations.emc.com"/><xsd:element name="SaveUserRequest"><xsd:complexType><xsd:sequence><xsd:element name="userDetails" type="user:User"/></xsd:sequence></xsd:complexType></xsd:element><xsd:element name="SaveUserResponse"><xsd:complexType><xsd:sequence><xsd:element name="userId" type="xsd:string"/></xsd:sequence></xsd:complexType></xsd:element></xsd:schema>
+    <xs:schema xmlns="http://userRegistrations.emc.com" xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://userRegistrations.emc.com"><xs:element name="User" type="User"/><xs:complexType name="User"><xs:sequence><xs:element name="UserId" type="xs:string"/><xs:element name="UserName" type="xs:string"/><xs:element name="UserGender" type="xs:string"/><xs:element name="UserStatus" type="xs:string"/><xs:element name="UserPhoneNum" type="xs:string"/><xs:element name="UserMailID" type="xs:string"/></xs:sequence></xs:complexType></xs:schema>
+  </wsdl:types>
+  <wsdl:message name="SaveUserResponse">
+    <wsdl:part element="tns:SaveUserResponse" name="SaveUserResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="SaveUserRequest">
+    <wsdl:part element="tns:SaveUserRequest" name="SaveUserRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="SaveUserService">
+    <wsdl:operation name="SaveUser">
+      <wsdl:input message="tns:SaveUserRequest" name="SaveUserRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:SaveUserResponse" name="SaveUserResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SaveUserServiceSoap11" type="tns:SaveUserService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="SaveUser">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="SaveUserRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="SaveUserResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SaveUserService">
+    <wsdl:port binding="tns:SaveUserServiceSoap11" name="SaveUserServiceSoap11">
+      <soap:address location="http://localhost:2017/UserRegistrations/endpoints"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
